@@ -1,0 +1,20 @@
+{
+	"info": [
+		{
+			"name": "alquiler",
+			"value": 13500
+		},
+		{
+			"name":"electrica",
+			"value": 2700,
+		{
+			"name":"agua",
+			"value": 1100},
+		{
+			"name":"internet",
+			"value": 2100},
+		{
+			"name":"otros",
+			"value": 11000}
+	]
+}

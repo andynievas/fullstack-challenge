@@ -1,0 +1,29 @@
+{
+	"info": [
+		{
+			"id": 0,
+			"name": "alquiler",
+			"value": 13500
+		},
+		{
+			"id": 1,
+			"name": "electrica",
+			"value": 2700
+		},
+		{
+			"id": 2,
+			"name": "agua",
+			"value": 1100
+		},
+		{
+			"id": 3,
+			"name": "internet",
+			"value": 2100
+		},
+		{
+			"id": 4,
+			"name": "otros",
+			"value": 11000
+		}
+	]
+}

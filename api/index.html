@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+  </head>
+  <body>
+
+
+    <form id="formExample" >
+      <input type="text" name="concept" placeholder="Concepto" required />
+      <button type="submit" >Submit</button>
+    </form>
+
+    <script>
+
+      document.addEventListener('DOMContentLoaded', ()=>{
+        alert("Dom cargado");
+        document.getElementById("formExample").addEventListener('submit', (e)=>{
+          e.preventDefault();
+
+          const data = new FormData(e.currentTarget);
+
+          console.log(data.get( "concept" ));
+
+          fetch("http://localhost:3001/newingreso", {
+            method: "POST",
+            // mode: 'cors',
+            headers:{
+            //   'Content-Type': 'application/json'
+              'Content-Type': 'multipart/form-data'
+            },
+            body: {
+              "concept": "andy"
+            }
+          });
+
+        });
+      });
+
+
+    </script>
+
+  </body>
+</html>
