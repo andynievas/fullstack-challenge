@@ -36,10 +36,10 @@ bodyparser.urlencoded({extended: false})
 // Open the database
 let db;
 function openDataBase(){
-	db = new sqlite3.Database(__dirname + '/../database/hola.db', sqlite3.OPEN_READWRITE, (err)=>{
+	db = new sqlite3.Database(__dirname + '/../database/data.db', sqlite3.OPEN_READWRITE, (err)=>{
 	if(err){
 		console.log(err);
-	}else console.log("Open the database connection.");
+	}/*else console.log("Open the database connection.");*/
 	});
 }
 
@@ -48,8 +48,7 @@ function closeDataBase(){
 	db.close((err) => {
 		if (err) {
 			console.error(err.message);
-		}
-		console.log('Close the database connection.');
+		}/*else console.log('Close the database connection.');*/
 	});
 }
 
@@ -65,7 +64,6 @@ app.get('/home', async(req, res)=>{
 
 	let dataIngresos = [];
 	let dataEgresos = [];
-	console.log("/home");
 
 	openDataBase();
 	db.all(sql, [], async (err, rows) => {
@@ -121,7 +119,6 @@ app.get('/ingresos', (req, res)=>{
 	let sql = 'SELECT * FROM ingresos';
 
 	let data = [];
-	console.log("/ingresos");
 
 	openDataBase();
 	db.all(sql, [], (err, rows) => {
@@ -188,8 +185,6 @@ app.post('/newingreso', (req, res)=>{
 		sql = `INSERT INTO ${body.type==="Ingreso" ? "ingresos" : "egresos"}(concepto,monto) VALUES("${body.concept}","${body.monto}")`;
 	}
 
-	console.log(sql);
-
 	// if data is ok then write in the database
 	if(dataIsOk){
 		openDataBase();
@@ -222,7 +217,6 @@ app.post('/update', (req, res)=>{
 	if( req.body.type && req.body.id && req.body.concept && req.body.monto ){
 		dataIsOk = true;
 		body = req.body;
-		console.log(body);
 		sql = `UPDATE ${body.type==="ingreso" ? "ingresos" : "egresos"} SET concepto='${body.concept}', monto=${body.monto} WHERE id=${body.id} `;
 	}
 
@@ -257,7 +251,6 @@ app.post('/delete', (req, res)=>{
 	if( req.body.type && req.body.id ){
 		dataIsOk = true;
 		body = req.body;
-		console.log(body);
 		sql = `DELETE FROM ${body.type==="ingreso" ? "ingresos" : "egresos"} WHERE id=${body.id} `;
 	}
 
