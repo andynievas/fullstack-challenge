@@ -1,2 +1,5 @@
-# fullstack-challenge
-This is a fullstack challenge by Alkemy.
+# App de finanzas personales
+
+Fullstack challenge by Alkemy.
+
+## Se trata de una aplicacion para administrar los ingresos y egresos personales
